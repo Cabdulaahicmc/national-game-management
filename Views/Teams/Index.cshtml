@@ -1,0 +1,61 @@
+﻿@model IEnumerable<national.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+<p>list of Teams </p>
+<div class="col-12">
+    <div class="bg-secondary rounded h-100 p-4" style=" width:1500px">
+        <h6 class="mb-4">Responsive Table</h6>
+        <div class="table-responsive">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.City)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.Stadium)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.Founded)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Stadium)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Founded)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+
+
+
+                    }
+                </tbody>
+         
+            </table>
+        </div>
+    </div>
+</div>

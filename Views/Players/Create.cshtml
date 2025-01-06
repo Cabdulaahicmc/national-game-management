@@ -1,0 +1,65 @@
+﻿@model national.Models.Player
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="">
+    <div class="bg-secondary  rounded h-auto p-4 - " style="width: 1500px; margin-top:50px">
+        <form asp-action="Create" class="d-block gap-x-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h6 class="mb-4 text-start fs-1 fw-bolder" >Team Form</h6>
+            <div class="form-floating mb-4">
+                <input asp-for="Name" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="Age" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Age">Age</label>
+                <span asp-validation-for="Age" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="Position" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Position">Position</label>
+                <span asp-validation-for="Position" class="text-danger text-start"></span>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input asp-for="Country" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Country">Country</label>
+                <span asp-validation-for="Country" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <select asp-for="TeamId" class="form-select" asp-items="ViewBag.TeamId"  id="floatingSelect"
+                        aria-label="Floating label select example">
+                </select>
+                <label for="floatingSelect">Team name</label>
+            </div>
+            <div class="form-group mt-4">
+                <button type="submit" value="Create" style="width:1435px; margin-bottom:200px;" class="btn btn-primary">Add player</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

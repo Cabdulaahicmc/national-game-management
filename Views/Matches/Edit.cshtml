@@ -1,0 +1,78 @@
+﻿@model national.Models.Match
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="">
+    <div class="bg-secondary  rounded h-auto p-4 - " style="width: 1500px; margin-top:50px">
+        <form asp-action="Edit" class="d-block gap-x-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+
+            <h6 class="mb-4 text-start fs-1 fw-bolder">Update Match Form</h6>
+            <div class="form-floating mb-4">
+                <input asp-for="MatchDate" type="datetime" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="MatchDate">MatchDate</label>
+                <span asp-validation-for="MatchDate" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="Location" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Location">Location</label>
+                <span asp-validation-for="Location" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="DurationMinutes" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="DurationMinutes">DurationMinutes</label>
+                <span asp-validation-for="DurationMinutes" class="text-danger text-start"></span>
+            </div>
+
+            <div class="form-floating mb-4">
+                <select asp-for="TeamAId" class="form-select" asp-items="ViewBag.TeamAId" id="floatingSelect"
+                        aria-label="Floating label select example">
+                </select>
+                <label for="floatingSelect">TeamAId</label>
+                <span asp-validation-for="TeamBId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-floating mb-4">
+                <select asp-for="TeamBId" class="form-select" asp-items="ViewBag.TeamBId" id="floatingSelect"
+                        aria-label="Floating label select example">
+                </select>
+                <label for="floatingSelect">TeamBId</label>
+                <span asp-validation-for="TeamBId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-floating mb-4">
+                <select asp-for="GameId" class="form-select" asp-items="ViewBag.GameId" id="floatingSelect"
+                        aria-label="Floating label select example">
+                </select>
+                <label for="floatingSelect">GameId</label>
+                <span asp-validation-for="GameId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" value="Save" style="width:1435px; margin-bottom:200px;" class="btn btn-primary">Add Match</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

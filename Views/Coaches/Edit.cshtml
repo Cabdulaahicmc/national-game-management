@@ -1,0 +1,57 @@
+﻿@model national.Models.Coach
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<div class="">
+    <div class="bg-secondary  rounded h-auto p-4 - " style="width: 1500px; margin-top:50px">
+        <form asp-action="Edit" class="d-block gap-x-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <h6 class="mb-4 text-start fs-1 fw-bolder">Update Coach Form</h6>
+            <div class="form-floating mb-4">
+                <input asp-for="Name" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="ExperienceYears" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="ExperienceYears">ExperienceYears</label>
+                <span asp-validation-for="ExperienceYears" class="text-danger text-start"></span>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input asp-for="Email" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Email">Email</label>
+                <span asp-validation-for="Email" class="text-danger text-start"></span>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="Phone" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Phone">Phone</label>
+                <span asp-validation-for="Phone" class="text-danger text-start"></span>
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" value="Save" style="width:1435px; margin-bottom:200px;" class="btn btn-primary">Add player</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

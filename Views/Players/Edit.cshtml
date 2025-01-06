@@ -1,0 +1,75 @@
+﻿@model national.Models.Player
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Player</h4>
+<hr />
+
+
+
+
+
+<div class="">
+    <div class="bg-secondary  rounded h-auto p-4 - " style="width: 1500px; height:2000px ">
+        <form asp-action="Edit" class="d-block">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+
+            <h6 class="mb-4">Tea Form</h6>
+            <div class="form-floating mb-3">
+                <input asp-for="Name" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Age" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Age">Age</label>
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Position" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Position">Position</label>
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Country" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Country">Country</label>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <select asp-for="TeamId" class="form-control" asp-items="ViewBag.TeamId" class="form-select" id="floatingSelect"
+                        aria-label="Floating label select example">
+                </select>
+                <label for="floatingSelect">Team name</label>
+                <span asp-validation-for="TeamId" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Save" class="btn btn-primary">Add player</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

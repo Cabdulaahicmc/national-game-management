@@ -1,0 +1,64 @@
+﻿@model IEnumerable<national.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-12">
+    <div class="bg-secondary rounded h-100 p-4" style=" width:1500px">
+        <h6 class="mb-4">Players Table</h6>
+        <div class="table-responsive">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Age)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.Position)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.Country)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.Team)</th>
+                       
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Position)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Country)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team.Name)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+
+
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
